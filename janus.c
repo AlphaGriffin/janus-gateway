@@ -38,11 +38,11 @@
 #include "events.h"
 
 
-#define JANUS_NAME				"Janus WebRTC Gateway"
-#define JANUS_AUTHOR			"Meetecho s.r.l."
-#define JANUS_VERSION			23
-#define JANUS_VERSION_STRING	"0.2.3"
-#define JANUS_SERVER_NAME		"MyJanusInstance"
+#define JANUS_NAME				"Janus WebRTC Gateway Alpha Griffin Edition"
+#define JANUS_AUTHOR			"Meetecho s.r.l. / alphagriffin.com"
+#define JANUS_VERSION			24
+#define JANUS_VERSION_STRING	"0.2.4"
+#define JANUS_SERVER_NAME		"AlphaGriffinExample"
 
 #ifdef __MACH__
 #define SHLIB_EXT "0.dylib"

@@ -267,7 +267,7 @@ static struct MHD_Daemon *janus_http_create_daemon(gboolean admin, char *path,
 			return NULL;
 		} else {
 			for(ifa = ifaddr, n = 0; ifa != NULL; ifa = ifa->ifa_next, n++) {
-				family = ifa->ifa_addr->sa_family;
+				//family = ifa->ifa_addr->sa_family;
 				if(interface && strcasecmp(ifa->ifa_name, interface))
 					continue;
 				if(ifa->ifa_addr == NULL)
@@ -277,29 +277,29 @@ static struct MHD_Daemon *janus_http_create_daemon(gboolean admin, char *path,
 					continue;
 				/* FIXME When being explicit about the interface only, we only bind IPv4 for now:
 				 * specifying or adding a precise IPv6 address gets you an IPv6 binding instead */
-				if(!ipv6 && family == AF_INET) {
+				//if(!ipv6 && family == AF_INET) {
 					s = getnameinfo(ifa->ifa_addr, sizeof(struct sockaddr_in), host, NI_MAXHOST, NULL, 0, NI_NUMERICHOST);
-					if(s != 0) {
-						JANUS_LOG(LOG_ERR, "Error doing a getnameinfo() to bind %s API %s webserver to '%s'...\n",
-							admin ? "Admin" : "Janus", secure ? "HTTPS" : "HTTP", ip ? ip : interface);
-						return NULL;
-					}
+//					if(s != 0) {
+//						JANUS_LOG(LOG_ERR, "Error doing a getnameinfo() to bind %s API %s webserver to '%s'...\n",
+//							admin ? "Admin" : "Janus", secure ? "HTTPS" : "HTTP", ip ? ip : interface);
+//						return NULL;
+//					}
 					if(ip && strcmp(host, ip))
 						continue;
 					found = TRUE;
 					break;
-				} else if(ipv6 && family == AF_INET6) {
-					s = getnameinfo(ifa->ifa_addr, sizeof(struct sockaddr_in6), host, NI_MAXHOST, NULL, 0, NI_NUMERICHOST);
-					if(s != 0) {
-						JANUS_LOG(LOG_ERR, "Error doing a getnameinfo() to bind %s API %s webserver to '%s'...\n",
-							admin ? "Admin" : "Janus", secure ? "HTTPS" : "HTTP", ip ? ip : interface);
-						return NULL;
-					}
-					if(ip && strcmp(host, ip))
-						continue;
-					found = TRUE;
-					break;
-				}
+				//} else if(ipv6 && family == AF_INET6) {
+//					s = getnameinfo(ifa->ifa_addr, sizeof(struct sockaddr_in6), host, NI_MAXHOST, NULL, 0, NI_NUMERICHOST);
+//					if(s != 0) {
+//						JANUS_LOG(LOG_ERR, "Error doing a getnameinfo() to bind %s API %s webserver to '%s'...\n",
+//							admin ? "Admin" : "Janus", secure ? "HTTPS" : "HTTP", ip ? ip : interface);
+//						return NULL;
+//					}
+//					if(ip && strcmp(host, ip))
+//						continue;
+//					found = TRUE;
+//					break;
+//				}
 			}
 			freeifaddrs(ifaddr);
 		}

@@ -1,6 +1,8 @@
 Janus WebRTC Gateway
 ====================
 
+*Alpha Griffin Edition*
+
 Janus is an open source, general purpose, WebRTC gateway designed and
 developed by [Meetecho](http://www.meetecho.com). This version
 of the gateway can only be installed on Linux systems: next versions
@@ -309,7 +311,7 @@ or on the command line:
 
 	<installdir>/bin/janus --help
 
-	janus 0.2.3
+	janus 0.2.4 -- Alpha Griffin Edition
 
 	Usage: janus [OPTIONS]...
 
